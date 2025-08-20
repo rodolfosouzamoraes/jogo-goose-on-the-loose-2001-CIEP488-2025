@@ -50,6 +50,11 @@ public class MoverPlayer : MonoBehaviour
         //Definir a direção no plano X e Z
         Vector3 direcaoXZ = new Vector3(direcaoHorizontal,0,direcaoVertical).normalized;
 
+        //Rotacionar o jogador em referencia a camera
+        if (direcaoXZ != Vector3.zero) { 
+            direcaoXZ = RotacionarParaOndeACameraEstaVisualizando(direcaoXZ);
+        }
+
         //Verificar se o jogador está no chão para poder pular
         if (playerController.isGrounded == true) {
             //Verificar se a tecla do pulo foi acionada
@@ -77,5 +82,26 @@ public class MoverPlayer : MonoBehaviour
 
         //Movimentar o player
         playerController.Move(direcaoFinal * Time.deltaTime);
+    }
+
+    private Vector3 RotacionarParaOndeACameraEstaVisualizando(Vector3 direcao)
+    {
+        //Converter a direção de entrada em um angulo no plano XZ e
+        //depois transformar em graus para conseguir usar a camera como referencia
+        float anguloAlvo = Mathf.Atan2(direcao.x, direcao.z) * Mathf.Rad2Deg + cameraPlayer.eulerAngles.y;
+
+        //Fazer uma rotação suave entre o angulo que o jogador está para o angulo alvo
+        float angulo = Mathf.SmoothDampAngle(
+            transform.eulerAngles.y, 
+            anguloAlvo, 
+            ref velocidadeDeGiroSuave, 
+            valorDeGiroSuave
+        );
+
+        //Atualizar a rotação do player no mundo do jogo, girando ele no eixo y
+        transform.rotation = Quaternion.Euler(0, angulo, 0);
+
+        //Retornar a direção ajustada pela rotação do player
+        return Quaternion.Euler(0,anguloAlvo,0) * Vector3.forward;
     }
 }
