@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoverPlayer : MonoBehaviour
@@ -81,7 +82,13 @@ public class MoverPlayer : MonoBehaviour
         direcaoFinal.y = velocidadeVertical;
 
         //Movimentar o player
-        playerController.Move(direcaoFinal * Time.deltaTime);
+        if(direcaoFinal != new Vector3(0,-1,0))
+        {
+            Debug.Log($"Parado: {direcaoFinal}");
+            playerController.Move(direcaoFinal * Time.deltaTime);
+
+        }
+            
     }
 
     private Vector3 RotacionarParaOndeACameraEstaVisualizando(Vector3 direcao)
