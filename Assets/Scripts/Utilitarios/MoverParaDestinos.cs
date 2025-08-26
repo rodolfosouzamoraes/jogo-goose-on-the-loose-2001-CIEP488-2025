@@ -13,7 +13,7 @@ public class MoverParaDestinos : MonoBehaviour
     void Start()
     {
         //Definir a posição inicial da plataforma
-        transform.position = destinos[0];
+        transform.localPosition = destinos[0];
 
         //Definir o proximo destino com o seu identificador do vetor
         destinoId = 1;
@@ -53,14 +53,14 @@ public class MoverParaDestinos : MonoBehaviour
             float velocidadeMovimento = velocidade * Time.deltaTime;
 
             //mover o objeto até o destino
-            transform.position = Vector3.MoveTowards(
-                transform.position, 
+            transform.localPosition = Vector3.MoveTowards(
+                transform.localPosition, 
                 destinos[destinoId],
                 velocidadeMovimento
             );
 
             //Verificar se chegou no destino
-            if(Vector3.Distance(transform.position, destinos[destinoId]) < 0.001f)
+            if(Vector3.Distance(transform.localPosition, destinos[destinoId]) < 0.001f)
             {
                 //Habilitar para mudar o destino da plataforma
                 proximoDestino = true;

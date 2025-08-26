@@ -25,6 +25,7 @@ public class MoverPlayer : MonoBehaviour
 
         //Configurar a posicao da camera do player
         cameraPlayer = Camera.main.transform;
+        
     }
 
     // Update is called once per frame
@@ -84,9 +85,7 @@ public class MoverPlayer : MonoBehaviour
         //Movimentar o player
         if(direcaoFinal != new Vector3(0,-1,0))
         {
-            Debug.Log($"Parado: {direcaoFinal}");
             playerController.Move(direcaoFinal * Time.deltaTime);
-
         }
             
     }
