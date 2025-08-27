@@ -31,6 +31,9 @@ public class MoverPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Verificar se o jogo acabou
+        if (CanvasGameMng.Instance.FimDeJogo == true) return;
+
         MovimentarXYZ();
     }
 

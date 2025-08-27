@@ -7,6 +7,9 @@ public class DanoPlayer : MonoBehaviour
     
     public void DanoArmadilhas()
     {
+        //Verificar se o jogo acabou
+        if (CanvasGameMng.Instance.FimDeJogo == true) return;
+
         //Diminuir a vida
         vida--;
 

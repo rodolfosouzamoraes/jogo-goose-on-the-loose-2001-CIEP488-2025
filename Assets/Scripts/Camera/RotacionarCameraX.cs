@@ -10,6 +10,9 @@ public class RotacionarCameraX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Verificar se o jogo acabou
+        if (CanvasGameMng.Instance.FimDeJogo == true) return;
+
         //Obter o input Y do mouse
         cameraAnguloX += -Input.GetAxis("Mouse Y") * velocidadeRotacao;
 
