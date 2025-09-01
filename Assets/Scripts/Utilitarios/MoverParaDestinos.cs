@@ -5,6 +5,7 @@ public class MoverParaDestinos : MonoBehaviour
     [SerializeField] Vector3[] destinos;//Todos os destinos que a plataforma irá
     [SerializeField] float velocidade;//Velocidade de movimentação
     [SerializeField] float tempoEspera; //Tempo para esperar a se mover
+    [SerializeField] bool ativarMovimentacao = true; //Ativar ou desativar a movimentação
     private int destinoId;//Identificar qual destino ele está
     private bool proximoDestino;//Verificar se está habilitado da plataforma ir para o proximo destino
     private float proximoTempo;//Tempo para ir para o proximo destino
@@ -22,6 +23,9 @@ public class MoverParaDestinos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //verificar se o objeto pode se mover
+        if (ativarMovimentacao == false) return;
+
         MoverPlataforma();
     }
 
@@ -69,5 +73,14 @@ public class MoverParaDestinos : MonoBehaviour
                 proximoTempo = Time.timeSinceLevelLoad + tempoEspera;
             }
         }
+    }
+
+    public void AtivarObjeto()
+    {
+        ativarMovimentacao = true;
+    }
+    public void DesativarObjeto()
+    {
+        ativarMovimentacao = false;
     }
 }
