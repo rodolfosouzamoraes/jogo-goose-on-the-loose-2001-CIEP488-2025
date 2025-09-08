@@ -5,7 +5,7 @@ public class DanoPlayer : MonoBehaviour
     [SerializeField] int vida;
     [SerializeField] MoverPlayer moverPlayer;
     
-    public void DanoArmadilhas()
+    public void Dano()
     {
         //Verificar se o jogo acabou
         if (CanvasGameMng.Instance.FimDeJogo == true) return;
