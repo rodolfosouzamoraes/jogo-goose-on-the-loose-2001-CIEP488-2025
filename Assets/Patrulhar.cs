@@ -6,6 +6,7 @@ public class Patrulhar : MonoBehaviour
     [SerializeField] GameObject corpoPatrulheiro;
     [SerializeField] float velocidadeMovimento;
     [SerializeField] float velocidadeRotacao;
+    [SerializeField] MoverParaFrente moverObjeto;
     private bool estaMovendo = true;
     private bool estaRotacionando = false;
     private float angulo;
@@ -35,11 +36,12 @@ public class Patrulhar : MonoBehaviour
 
         corpoPatrulheiro.transform.rotation = Quaternion.LookRotation(novaRotacao);
 
-        float diferencaAngulo = Vector3.Angle(corpoPatrulheiro.transform.forward, rotacaoAlvo);
+        float diferencaAngulo = Vector3.Angle(corpoPatrulheiro.transform.forward, rotacaoAlvo) * Mathf.Deg2Rad;
 
         if (diferencaAngulo <= 0.01f)
         {
             estaRotacionando = false;
+            moverObjeto.InverterVelocidade();
         }
     }
 
@@ -47,5 +49,6 @@ public class Patrulhar : MonoBehaviour
     {
         angulo += 180;
         estaRotacionando = true;
+        moverObjeto.PararMovimentacao();
     }
 }
