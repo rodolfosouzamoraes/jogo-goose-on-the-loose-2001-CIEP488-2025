@@ -16,7 +16,7 @@ public class MoverPlayer : MonoBehaviour
     [SerializeField] float forcaQueda; //Força de queda do player
     private CharacterController playerController; //O controlador da movimentação do player
     private float velocidadeVertical = 0; //A velocidade na vertical do player
-
+    private bool habilitarMovimentacao;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,14 +25,16 @@ public class MoverPlayer : MonoBehaviour
 
         //Configurar a posicao da camera do player
         cameraPlayer = Camera.main.transform;
-        
+
+        //Habilitar movimentação
+        habilitarMovimentacao = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Verificar se o jogo acabou
-        if (CanvasGameMng.Instance.FimDeJogo == true) return;
+        if (CanvasGameMng.Instance.FimDeJogo == true || habilitarMovimentacao == false) return;
 
         MovimentarXYZ();
     }
@@ -112,5 +114,15 @@ public class MoverPlayer : MonoBehaviour
 
         //Retornar a direção ajustada pela rotação do player
         return Quaternion.Euler(0,anguloAlvo,0) * Vector3.forward;
+    }
+
+    public void BloquearMovimentacao()
+    {
+        habilitarMovimentacao = false;
+    }
+
+    public void PermitirMovimentacao()
+    {
+        habilitarMovimentacao = true;
     }
 }

@@ -5,6 +5,7 @@ public class CanvasGameMng : MonoBehaviour
     public static CanvasGameMng Instance;
     public static PainelTopo PainelTopo;
     public static PainelFimDeJogo PainelFimDeJogo;
+    public static PainelTeleporte PainelTeleporte;
     //Singleton
     void Awake()
     {
@@ -12,6 +13,7 @@ public class CanvasGameMng : MonoBehaviour
         {
             PainelTopo = GetComponent<PainelTopo>();
             PainelFimDeJogo = GetComponent<PainelFimDeJogo>();
+            PainelTeleporte = GetComponent<PainelTeleporte>();
             Instance = this;
             return;
         }
