@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6970141719589449291}
   - component: {fileID: 8446234354122350504}
   - component: {fileID: 3444341480879480849}
+  - component: {fileID: 7506348236732873790}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -231,3 +232,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 3
   moverPlayer: {fileID: 8446234354122350504}
+--- !u!114 &7506348236732873790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589303985995605822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a6e9260f92cd04786e20838195ea3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

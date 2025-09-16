@@ -20,4 +20,11 @@ public class DanoPlayer : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    public void MatarPlayer()
+    {
+        vida = 0;
+        gameObject.SetActive(false);
+        //Game Over
+    }
 }
