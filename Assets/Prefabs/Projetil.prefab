@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 7914277509402474080}
   - component: {fileID: 9056820050677466886}
   - component: {fileID: 2278288704224182564}
-  m_Layer: 0
+  - component: {fileID: 2716474538920408419}
+  m_Layer: 9
   m_Name: Projetil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,3 +178,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27392550b9bcc214fb41965bdb4ef075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2716474538920408419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302043796285116301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764bf9c57f785724ba57483881f3c752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destruirObjeto: 1

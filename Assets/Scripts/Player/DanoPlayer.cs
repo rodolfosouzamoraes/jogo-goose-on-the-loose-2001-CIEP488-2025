@@ -13,11 +13,13 @@ public class DanoPlayer : MonoBehaviour
         //Diminuir a vida
         vida--;
 
+        //Atualizar UI vida
+        CanvasGameMng.PainelVidaPlayer.AtualizarVidaUI(vida);
+
         //verificar se a vida acabou
         if(vida == 0)
         {
-            //GameOver
-            gameObject.SetActive(false);
+            MatarPlayer();
         }
     }
 
@@ -25,6 +27,11 @@ public class DanoPlayer : MonoBehaviour
     {
         vida = 0;
         gameObject.SetActive(false);
+
+        //Atualizar UI vida
+        CanvasGameMng.PainelVidaPlayer.AtualizarVidaUI(vida);
+
         //Game Over
+        CanvasGameMng.PainelGameOver.GameOver();
     }
 }

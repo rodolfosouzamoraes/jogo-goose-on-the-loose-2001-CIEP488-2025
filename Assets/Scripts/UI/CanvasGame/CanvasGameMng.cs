@@ -6,6 +6,8 @@ public class CanvasGameMng : MonoBehaviour
     public static PainelTopo PainelTopo;
     public static PainelFimDeJogo PainelFimDeJogo;
     public static PainelTeleporte PainelTeleporte;
+    public static PainelVidaPlayer PainelVidaPlayer;
+    public static PainelGameOver PainelGameOver;
     //Singleton
     void Awake()
     {
@@ -14,6 +16,8 @@ public class CanvasGameMng : MonoBehaviour
             PainelTopo = GetComponent<PainelTopo>();
             PainelFimDeJogo = GetComponent<PainelFimDeJogo>();
             PainelTeleporte = GetComponent<PainelTeleporte>();
+            PainelVidaPlayer = GetComponent<PainelVidaPlayer>();
+            PainelGameOver = GetComponent<PainelGameOver>();    
             Instance = this;
             return;
         }
@@ -26,6 +30,7 @@ public class CanvasGameMng : MonoBehaviour
     public bool FimDeJogo
     {
         get { return fimDeJogo; }
+        set { fimDeJogo = value; }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
