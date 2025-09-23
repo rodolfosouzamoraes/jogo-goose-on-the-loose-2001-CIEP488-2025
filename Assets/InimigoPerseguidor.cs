@@ -8,6 +8,7 @@ public class InimigoPerseguidor : MonoBehaviour
     private Vector3 posicaoInicial;
     [SerializeField] float velocidade;
     [SerializeField] float distanciaParaPerseguir;
+    [SerializeField] SuporteAnimacaoInimigo animacaoInimigo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +42,21 @@ public class InimigoPerseguidor : MonoBehaviour
         else
         {
             agent.destination = posicaoInicial;
+        }
+
+        AtivarAnimacao();
+    }
+
+    private void AtivarAnimacao()
+    {
+        //verificar se o objeto estã em movimento
+        if(agent.velocity != Vector3.zero)
+        {
+            animacaoInimigo.PlayCorrendo();
+        }
+        else
+        {
+            animacaoInimigo.PlayParado();
         }
     }
 }
