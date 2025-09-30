@@ -14,6 +14,10 @@ public class MoverPlayer : MonoBehaviour
     [SerializeField] float velocidadeCorrida; //Velocidade de corrida do player
     [SerializeField] float forcaPulo; //Força de subida do player
     [SerializeField] float forcaQueda; //Força de queda do player
+
+    [Header("Config Animação")]
+    [SerializeField] SuporteAnimacaoPlayer animacaoPlayer;
+    
     private CharacterController playerController; //O controlador da movimentação do player
     private float velocidadeVertical = 0; //A velocidade na vertical do player
     private bool habilitarMovimentacao;
@@ -92,7 +96,8 @@ public class MoverPlayer : MonoBehaviour
         {
             playerController.Move(direcaoFinal * Time.deltaTime);
         }
-            
+
+        AtivaAnimacao(direcaoXZ, estaCorrendo);
     }
 
     private Vector3 RotacionarParaOndeACameraEstaVisualizando(Vector3 direcao)
@@ -124,5 +129,31 @@ public class MoverPlayer : MonoBehaviour
     public void PermitirMovimentacao()
     {
         habilitarMovimentacao = true;
+    }
+
+    private void AtivaAnimacao(Vector3 direcaoFinal, bool estaCorrendo)
+    {
+        if (playerController.isGrounded == true)
+        {
+            if (direcaoFinal != new Vector3(0, 0, 0))
+            {
+                if(estaCorrendo == true)
+                {
+                    animacaoPlayer.PlayCorrendo();
+                }
+                else
+                {
+                    animacaoPlayer.PlayAndando();
+                }
+            }
+            else
+            {
+                animacaoPlayer.PlayParado();
+            }
+        }
+        else
+        {
+            animacaoPlayer.PlayPulando();
+        }
     }
 }
