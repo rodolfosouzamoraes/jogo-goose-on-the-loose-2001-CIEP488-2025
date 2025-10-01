@@ -6,9 +6,23 @@ public class PainelTopo : MonoBehaviour
     [SerializeField] GameObject pnlTopo;
     [SerializeField] TextMeshProUGUI txtMoeda;
     private int moedasColetadas;
+    private int totalMoedasLevel;
+
+    public int MoedasColetadas
+    {
+        get { return moedasColetadas; }
+    }
+    public int TotalMoedasLevel
+    {
+        get { return totalMoedasLevel; }
+    }
 
     [SerializeField] GameObject[] ovos;
     private int ovosColetados;
+    public int OvosColetados
+    {
+        get { return ovosColetados; }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +36,9 @@ public class PainelTopo : MonoBehaviour
         {
             ovo.SetActive(false);
         }
+
+        //Encontra todas as moedas do level
+        totalMoedasLevel = FindObjectsByType<ColetarMoeda>(FindObjectsSortMode.None).Length;
     }
 
     public void IncrementarMoeda()

@@ -45,6 +45,10 @@ public class CanvasGameMng : MonoBehaviour
         fimDeJogo = true;
 
         //Exibir a tela de finalização
-        PainelFimDeJogo.ExibirFimDeJogo();
+        PainelFimDeJogo.CalcularPontosLevel(
+            PainelTopo.TotalMoedasLevel,
+            PainelTopo.MoedasColetadas,
+            PainelTopo.OvosColetados
+        );
     }
 }
