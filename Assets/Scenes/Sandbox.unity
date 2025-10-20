@@ -6723,57 +6723,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 273109556}
     m_Modifications:
     - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1311037820}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
       propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1107882528}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarTecla
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AtivarObjeto
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AcionarBotao, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: MoverParaDestinos, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-      propertyPath: ativarEventos.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8185207017984530223, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
       propertyPath: m_Name
       value: Botao (1)
@@ -6823,17 +6775,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
---- !u!114 &1311037820 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5670331471298194365, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
-  m_PrefabInstance: {fileID: 1311037819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a094ad1e49a0d0d4885b1af72d2598ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1311037824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8309624437780099457, guid: 3e83791e321de0740b7d94bae4f52f7f, type: 3}
