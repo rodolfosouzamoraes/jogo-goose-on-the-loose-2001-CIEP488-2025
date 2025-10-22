@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   corpoPatrulheiro: {fileID: 6783544757282965666}
   velocidadeMovimento: 10
-  velocidadeRotacao: 3
+  velocidadeRotacao: 100
   moverObjeto: {fileID: 7667182258416414819}
 --- !u!114 &7667182258416414819
 MonoBehaviour:
