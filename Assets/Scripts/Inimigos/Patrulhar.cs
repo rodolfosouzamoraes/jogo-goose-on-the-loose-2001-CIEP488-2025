@@ -3,11 +3,9 @@ using UnityEngine;
 public class Patrulhar : MonoBehaviour
 {
     [SerializeField] private GameObject corpoPatrulheiro;
-    [SerializeField] private float velocidadeMovimento = 5f;
     [SerializeField] private float velocidadeRotacao = 2f;
     [SerializeField] private MoverParaFrente moverObjeto;
 
-    private bool estaMovendo = true;
     private bool estaRotacionando = false;
     private float anguloAtual; // ângulo real em graus
 
