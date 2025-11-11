@@ -36,7 +36,8 @@ public class CanvasGameMng : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //Ocultar a tela de loading
+        CanvasLoadingMng.Instance.OcultarTela();
     }
 
     public void DefinirFimDeJogo()
