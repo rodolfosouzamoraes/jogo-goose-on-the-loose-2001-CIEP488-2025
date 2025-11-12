@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,11 +14,26 @@ public class CanvasMenu : MonoBehaviour
 
     public void CarregarLevel(int id)
     {
+        //Verificar se o level pode ser carregado, se ele foi desbloqueado
+        bool foiDesbloqueado = DBMng.ObterLevelDesbloqueado(id) == 1;
+
+        if(foiDesbloqueado == true)
+        {
+            //Exibir a tela de loading
+            CanvasLoadingMng.Instance.ExibirTela();
+
+            //Carregar cena do level id
+            SceneManager.LoadScene(id);
+        }        
+    }
+
+    public void CarregarPrimeiroLevel()
+    {
         //Exibir a tela de loading
         CanvasLoadingMng.Instance.ExibirTela();
 
         //Carregar cena do level id
-        SceneManager.LoadScene(id);
+        SceneManager.LoadScene(1);
     }
 
     public void SairJogo()

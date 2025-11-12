@@ -34,6 +34,8 @@ public class PainelFimDeJogo : MonoBehaviour
 
     public void CalcularPontosLevel(int totalMoedasLevel, int totalMoedasColetadas, int totalOvosColetados)
     {
+        int ovoFinal = 0;
+        int gansoFinal = 0;
         //Verificar se coletou todos os ovos e todas as moedas
         if(totalMoedasLevel == totalMoedasColetadas && totalOvosColetados == 3)
         {
@@ -50,23 +52,35 @@ public class PainelFimDeJogo : MonoBehaviour
             {
                 //Jogador recebe o ganso e o ovo de prata
                 imgGansoFinal.sprite = sptsGanso[1];
+                gansoFinal = 1;
+
                 imgOvoFinal.sprite = totalOvosColetados == 2 ? sptsOvo[1] : sptsOvo[0];
+                ovoFinal = totalOvosColetados == 2 ? 1 : 0;
             }
             else
             {
                 //Jogador recebe o ganso bronze
                 imgGansoFinal.sprite = sptsGanso[2];
+                gansoFinal = 2;
+
                 //Verifica a coleta dos ovos
                 switch (totalOvosColetados)
                 {
+                    case 3:
+                        imgOvoFinal.sprite = sptsOvo[0];
+                        ovoFinal = 0;
+                        break;
                     case 2:
                         imgOvoFinal.sprite = sptsOvo[1];
+                        ovoFinal = 1;
                         break;
                     case 1:
                         imgOvoFinal.sprite = sptsOvo[2];
+                        ovoFinal = 2;
                         break;
                     case 0:
                         imgOvoFinal.enabled =false;
+                        ovoFinal = -1;
                         break;
                 }
             }
@@ -74,6 +88,15 @@ public class PainelFimDeJogo : MonoBehaviour
 
         //Exibir o total de moedas coletadas
         txtMoedasTotais.text = $"x{totalMoedasColetadas}";
+
+        //Salvar na memoria os dados
+        DBMng.Save(
+            SceneManager.GetActiveScene().buildIndex,
+            totalOvosColetados,
+            totalMoedasColetadas,
+            ovoFinal,
+            gansoFinal
+        );
 
         ExibirFimDeJogo();
     }
