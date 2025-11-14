@@ -15,7 +15,7 @@ public class CanvasMenu : MonoBehaviour
     public void CarregarLevel(int id)
     {
         //Verificar se o level pode ser carregado, se ele foi desbloqueado
-        bool foiDesbloqueado = DBMng.ObterLevelDesbloqueado(id) == 1;
+        bool foiDesbloqueado = DBMng.ObterLevelDesbloqueado(id);
 
         if(foiDesbloqueado == true)
         {

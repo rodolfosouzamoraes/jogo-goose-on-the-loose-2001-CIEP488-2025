@@ -19,9 +19,9 @@ public static class DBMng
         return PlayerPrefs.GetInt(MOEDAS_LEVEL + id);
     }
 
-    public static int ObterLevelDesbloqueado(int id)
+    public static bool ObterLevelDesbloqueado(int id)
     {
-        return PlayerPrefs.GetInt(LEVEL_DESBLOQUEADO + id);
+        return PlayerPrefs.GetInt(LEVEL_DESBLOQUEADO + id) == 1;
     }
 
     public static int ObterOvoFinalLevel(int id)
