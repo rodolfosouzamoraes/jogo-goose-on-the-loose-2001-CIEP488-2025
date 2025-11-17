@@ -26,11 +26,21 @@ public static class DBMng
 
     public static int ObterOvoFinalLevel(int id)
     {
+        int ovosLevel = PlayerPrefs.GetInt(OVO_FINAL_LEVEL + id);
+        if(ovosLevel == 0)
+        {
+            PlayerPrefs.SetInt(OVO_FINAL_LEVEL + id,4);
+        }
         return PlayerPrefs.GetInt(OVO_FINAL_LEVEL + id);
     }
 
     public static int ObterGansoFinalLevel(int id)
     {
+        int gansoFinal = PlayerPrefs.GetInt(GANSO_FINAL_LEVEL + id);
+        if (gansoFinal == 0)
+        {
+            PlayerPrefs.SetInt(GANSO_FINAL_LEVEL + id, 4);
+        }
         return PlayerPrefs.GetInt(GANSO_FINAL_LEVEL + id);
     }
 
@@ -41,7 +51,6 @@ public static class DBMng
         int moedasLevel = ObterMoedasLevel(idLevel);
         int ovoFinalLevel = ObterOvoFinalLevel(idLevel);
         int gansoFinalLevel = ObterGansoFinalLevel(idLevel);
-
         //Verificar se os novos ovos coletados foram maior que anteriomente
         if (ovos > ovosLevel)
         {
@@ -54,12 +63,12 @@ public static class DBMng
             PlayerPrefs.SetInt(MOEDAS_LEVEL + idLevel, moedas);
         }
 
-        if (ovoFinal > ovoFinalLevel)
+        if (ovoFinal < ovoFinalLevel)
         {
             PlayerPrefs.SetInt(OVO_FINAL_LEVEL + idLevel, ovoFinal);
         }
 
-        if (gansoFinal > gansoFinalLevel)
+        if (gansoFinal < gansoFinalLevel)
         {
             PlayerPrefs.SetInt(GANSO_FINAL_LEVEL + idLevel, gansoFinal);
         }

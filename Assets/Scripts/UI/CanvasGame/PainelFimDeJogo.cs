@@ -34,56 +34,50 @@ public class PainelFimDeJogo : MonoBehaviour
 
     public void CalcularPontosLevel(int totalMoedasLevel, int totalMoedasColetadas, int totalOvosColetados)
     {
-        int ovoFinal = 0;
-        int gansoFinal = 0;
-        //Verificar se coletou todos os ovos e todas as moedas
-        if(totalMoedasLevel == totalMoedasColetadas && totalOvosColetados == 3)
+        int ovoFinal = 4;
+        int gansoFinal = 4;
+
+        //Calcular a porcentagem de coleta de moedas
+        float porcentagem = ((float)totalMoedasColetadas / (float)totalMoedasLevel) * 100;
+
+        //Verifica a coleta dos ovos
+        switch (totalOvosColetados)
         {
-            //Jogador recebe o ganso e o ovo de ouro
-            imgGansoFinal.sprite = sptsGanso[0];
-            imgOvoFinal.sprite = sptsOvo[0];
+            case 3:
+                imgOvoFinal.sprite = sptsOvo[0];
+                ovoFinal = 1;
+                break;
+            case 2:
+                imgOvoFinal.sprite = sptsOvo[1];
+                ovoFinal = 2;
+                break;
+            case 1:
+                imgOvoFinal.sprite = sptsOvo[2];
+                ovoFinal = 3;
+                break;
+            case 0:
+                imgOvoFinal.enabled = false;
+                ovoFinal = 4;
+                break;
         }
-        else
+
+        //Verificar se coletou acima de 50% das moedas e se tem mais de 1 ovo
+        if (porcentagem >= 50 && porcentagem < 100)
         {
-            //Calcular a porcentagem de coleta de moedas
-            float porcentagem = ((float)totalMoedasColetadas / (float)totalMoedasLevel) * 100;
-            //Verificar se coletou acima de 50% das moedas e se tem mais de 1 ovo
-            if (porcentagem >=50 && totalOvosColetados > 1)
-            {
-                //Jogador recebe o ganso e o ovo de prata
-                imgGansoFinal.sprite = sptsGanso[1];
-                gansoFinal = 1;
-
-                imgOvoFinal.sprite = totalOvosColetados == 2 ? sptsOvo[1] : sptsOvo[0];
-                ovoFinal = totalOvosColetados == 2 ? 1 : 0;
-            }
-            else
-            {
-                //Jogador recebe o ganso bronze
-                imgGansoFinal.sprite = sptsGanso[2];
-                gansoFinal = 2;
-
-                //Verifica a coleta dos ovos
-                switch (totalOvosColetados)
-                {
-                    case 3:
-                        imgOvoFinal.sprite = sptsOvo[0];
-                        ovoFinal = 0;
-                        break;
-                    case 2:
-                        imgOvoFinal.sprite = sptsOvo[1];
-                        ovoFinal = 1;
-                        break;
-                    case 1:
-                        imgOvoFinal.sprite = sptsOvo[2];
-                        ovoFinal = 2;
-                        break;
-                    case 0:
-                        imgOvoFinal.enabled =false;
-                        ovoFinal = -1;
-                        break;
-                }
-            }
+            //Jogador recebe o ganso e o ovo de prata
+            imgGansoFinal.sprite = sptsGanso[1];
+            gansoFinal = 2;
+        }
+        else if (porcentagem >= 100)
+        {
+            imgGansoFinal.sprite = sptsGanso[0];
+            gansoFinal = 1;
+        }
+        else if(porcentagem > 0)
+        {
+            //Jogador recebe o ganso bronze
+            imgGansoFinal.sprite = sptsGanso[2];
+            gansoFinal = 3;
         }
 
         //Exibir o total de moedas coletadas

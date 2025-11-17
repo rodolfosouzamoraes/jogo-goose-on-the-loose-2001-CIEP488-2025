@@ -377,13 +377,18 @@ MonoBehaviour:
   imgOvoFinal: {fileID: 8105092334159969900}
   imgGansoFinal: {fileID: 5010614265219464012}
   sptsOvos:
+  - {fileID: 0}
   - {fileID: 21300000, guid: fb6cc71d52be7b54db3f9b646964e1d0, type: 3}
   - {fileID: 21300000, guid: 5b2f9bdf66dd73b4c9b939b12f13d047, type: 3}
   - {fileID: 21300000, guid: 90d5380ffddccbb4290414b78e81114c, type: 3}
+  - {fileID: 0}
   sptsGanso:
+  - {fileID: 0}
   - {fileID: 21300000, guid: fb6cc71d52be7b54db3f9b646964e1d0, type: 3}
   - {fileID: 21300000, guid: 5b2f9bdf66dd73b4c9b939b12f13d047, type: 3}
   - {fileID: 21300000, guid: 90d5380ffddccbb4290414b78e81114c, type: 3}
+  - {fileID: 0}
+  txtNivel: {fileID: 429064866565883295}
 --- !u!1 &6310071683686263051
 GameObject:
   m_ObjectHideFlags: 0
