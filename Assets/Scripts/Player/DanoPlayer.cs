@@ -4,6 +4,8 @@ public class DanoPlayer : MonoBehaviour
 {
     [SerializeField] int vida;
     [SerializeField] MoverPlayer moverPlayer;
+    [SerializeField] GameObject efeitoDano;
+    [SerializeField] GameObject efeitoMorte;
     
     public void Dano()
     {
@@ -17,15 +19,24 @@ public class DanoPlayer : MonoBehaviour
         CanvasGameMng.PainelVidaPlayer.AtualizarVidaUI(vida);
 
         //verificar se a vida acabou
-        if(vida == 0)
+        if (vida == 0)
         {
             MatarPlayer();
+        }
+        else
+        {
+            GameObject novoEfeito = Instantiate(efeitoDano);
+            novoEfeito.transform.position = transform.position;
         }
     }
 
     public void MatarPlayer()
     {
         vida = 0;
+
+        GameObject novoEfeito = Instantiate(efeitoMorte);
+        novoEfeito.transform.position = transform.position;
+
         gameObject.SetActive(false);
 
         //Atualizar UI vida

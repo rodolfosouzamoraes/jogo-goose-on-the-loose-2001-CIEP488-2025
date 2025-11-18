@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a2ae3c7cf40d24f8dd18793e07591a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  efeitoMoeda: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
 --- !u!1001 &196492337709004160
 PrefabInstance:
   m_ObjectHideFlags: 0
