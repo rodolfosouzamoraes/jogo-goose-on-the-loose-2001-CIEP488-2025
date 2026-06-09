@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PainelVidaPlayer : MonoBehaviour
 {
@@ -8,16 +9,16 @@ public class PainelVidaPlayer : MonoBehaviour
     public void AtualizarVidaUI(int totalVidaPlayer)
     {
         //Ocultar todas as vidas para ativar apenas a quantidade de vidas correta
-        foreach (var vida in vidas)
+        for(int i = 0; i < vidas.Length; i++)
         {
-            vida.SetActive(false);
+            vidas[i].GetComponent<RawImage>().color = Color.black;
         }
 
         if (totalVidaPlayer !=0) {
             //Exibir a quantidade de vidas disponiveis
             for (int i = 0; i < totalVidaPlayer; i++)
             {
-                vidas[i].SetActive(true);
+                vidas[i].GetComponent<RawImage>().color = Color.white;
             }
         }
     }
