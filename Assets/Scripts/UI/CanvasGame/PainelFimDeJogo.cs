@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class PainelFimDeJogo : MonoBehaviour
 {
     [SerializeField] GameObject pnlFimDeJogo;
-    [SerializeField] Image imgGansoFinal;
     [SerializeField] Image imgOvoFinal;
     [SerializeField] TextMeshProUGUI txtMoedasTotais;
-    [SerializeField] Sprite[] sptsGanso;
     [SerializeField] Sprite[] sptsOvo;
     
     public void ExibirFimDeJogo()
@@ -35,49 +33,33 @@ public class PainelFimDeJogo : MonoBehaviour
     public void CalcularPontosLevel(int totalMoedasLevel, int totalMoedasColetadas, int totalOvosColetados)
     {
         int ovoFinal = 4;
-        int gansoFinal = 4;
 
         //Calcular a porcentagem de coleta de moedas
-        float porcentagem = ((float)totalMoedasColetadas / (float)totalMoedasLevel) * 100;
+        float porcentagemMoedasColetadas = ((float)totalMoedasColetadas / (float)totalMoedasLevel) * 100;
 
         //Verifica a coleta dos ovos
-        switch (totalOvosColetados)
+        if(porcentagemMoedasColetadas >= 100 && totalOvosColetados == 3)
         {
-            case 3:
-                imgOvoFinal.sprite = sptsOvo[0];
-                ovoFinal = 1;
-                break;
-            case 2:
-                imgOvoFinal.sprite = sptsOvo[1];
-                ovoFinal = 2;
-                break;
-            case 1:
+            imgOvoFinal.sprite = sptsOvo[0];
+            ovoFinal = 1;
+        }
+        else if(porcentagemMoedasColetadas >= 50 && totalOvosColetados >= 2)
+        {
+            imgOvoFinal.sprite = sptsOvo[1];
+            ovoFinal = 2;
+        }
+        else
+        {
+            if (totalOvosColetados >= 1)
+            {
                 imgOvoFinal.sprite = sptsOvo[2];
                 ovoFinal = 3;
-                break;
-            case 0:
+            }
+            else
+            {
                 imgOvoFinal.enabled = false;
                 ovoFinal = 4;
-                break;
-        }
-
-        //Verificar se coletou acima de 50% das moedas e se tem mais de 1 ovo
-        if (porcentagem >= 50 && porcentagem < 100)
-        {
-            //Jogador recebe o ganso e o ovo de prata
-            imgGansoFinal.sprite = sptsGanso[1];
-            gansoFinal = 2;
-        }
-        else if (porcentagem >= 100)
-        {
-            imgGansoFinal.sprite = sptsGanso[0];
-            gansoFinal = 1;
-        }
-        else if(porcentagem > 0)
-        {
-            //Jogador recebe o ganso bronze
-            imgGansoFinal.sprite = sptsGanso[2];
-            gansoFinal = 3;
+            }
         }
 
         //Exibir o total de moedas coletadas
@@ -88,8 +70,7 @@ public class PainelFimDeJogo : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex,
             totalOvosColetados,
             totalMoedasColetadas,
-            ovoFinal,
-            gansoFinal
+            ovoFinal
         );
 
         ExibirFimDeJogo();

@@ -5,7 +5,6 @@ public static class DBMng
     private const string OVOS_LEVEL = "ovos-level-";
     private const string MOEDAS_LEVEL = "moedas-level-";
     private const string OVO_FINAL_LEVEL = "ovo-final-level-";
-    private const string GANSO_FINAL_LEVEL = "ganso-final-level-";
     private const string LEVEL_DESBLOQUEADO = "level_desbloqueado-";
     private const string CONFIGURACOES = "configuracoes";
 
@@ -34,23 +33,12 @@ public static class DBMng
         return PlayerPrefs.GetInt(OVO_FINAL_LEVEL + id);
     }
 
-    public static int ObterGansoFinalLevel(int id)
-    {
-        int gansoFinal = PlayerPrefs.GetInt(GANSO_FINAL_LEVEL + id);
-        if (gansoFinal == 0)
-        {
-            PlayerPrefs.SetInt(GANSO_FINAL_LEVEL + id, 4);
-        }
-        return PlayerPrefs.GetInt(GANSO_FINAL_LEVEL + id);
-    }
-
-    public static void Save(int idLevel, int ovos, int moedas, int ovoFinal, int gansoFinal)
+    public static void Save(int idLevel, int ovos, int moedas, int ovoFinal)
     {
         //Obter dados atual do level
         int ovosLevel = ObterOvosLevel(idLevel);
         int moedasLevel = ObterMoedasLevel(idLevel);
         int ovoFinalLevel = ObterOvoFinalLevel(idLevel);
-        int gansoFinalLevel = ObterGansoFinalLevel(idLevel);
         //Verificar se os novos ovos coletados foram maior que anteriomente
         if (ovos > ovosLevel)
         {
@@ -66,11 +54,6 @@ public static class DBMng
         if (ovoFinal < ovoFinalLevel)
         {
             PlayerPrefs.SetInt(OVO_FINAL_LEVEL + idLevel, ovoFinal);
-        }
-
-        if (gansoFinal < gansoFinalLevel)
-        {
-            PlayerPrefs.SetInt(GANSO_FINAL_LEVEL + idLevel, gansoFinal);
         }
 
         //Desbloquear o próximo level
