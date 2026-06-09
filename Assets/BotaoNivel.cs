@@ -9,6 +9,8 @@ public class BotaoNivel : MonoBehaviour
     [SerializeField] Image imgOvoFinal;
     [SerializeField] Sprite[] sptsOvos;
     [SerializeField] TextMeshProUGUI txtNivel;
+    [SerializeField] GameObject iconMoeda;
+    [SerializeField] TextMeshProUGUI txtMoedas;
     private bool estaDesbloqueado;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,9 +20,13 @@ public class BotaoNivel : MonoBehaviour
 
         //verificar se está bloqueado
         cadeado.SetActive(!estaDesbloqueado);
+        imgOvoFinal.gameObject.SetActive(estaDesbloqueado);
+        iconMoeda.SetActive(estaDesbloqueado);
+        txtMoedas.gameObject.SetActive(estaDesbloqueado);
 
         //Obter o ganso e o ovo final
         int iconeOvoFinal = DBMng.ObterOvoFinalLevel(idNivel);
+        txtMoedas.text = $"${DBMng.ObterMoedasLevel(idNivel)}";
 
         imgOvoFinal.color = iconeOvoFinal == 4 || iconeOvoFinal == 0 ? Color.black : Color.white;
 
