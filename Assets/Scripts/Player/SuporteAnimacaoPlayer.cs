@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SuporteAnimacaoPlayer : MonoBehaviour
 {
     private Animator animator;
+    public UnityEvent[] eventosAnimacao;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,5 +41,10 @@ public class SuporteAnimacaoPlayer : MonoBehaviour
         animator.SetBool("Correndo", false);
         animator.SetBool("Andando", false);
         animator.SetBool("Pulando", true);
+    }
+
+    public void AcionarEvento(int evento)
+    {
+        eventosAnimacao[evento].Invoke();
     }
 }

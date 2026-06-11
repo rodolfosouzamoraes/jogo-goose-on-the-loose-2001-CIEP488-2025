@@ -20,18 +20,20 @@ public class DanoPlayer : MonoBehaviour
 
         //verificar se a vida acabou
         if (vida == 0)
-        {
+        {            
             MatarPlayer();
         }
         else
         {
             GameObject novoEfeito = Instantiate(efeitoDano);
             novoEfeito.transform.position = transform.position;
+            GetComponentInChildren<AudioController>().PlayAudioGlobal(2);
         }
     }
 
     public void MatarPlayer()
     {
+        GetComponentInChildren<AudioController>().PlayAudioGlobal(6);
         vida = 0;
 
         GameObject novoEfeito = Instantiate(efeitoMorte);
