@@ -4,6 +4,7 @@ public class Fechadura : MonoBehaviour
 {
     [SerializeField] AbrirFecharPassagem portao;
     [SerializeField] GameObject fechadura;
+    [SerializeField] AudioClip audioAbrirCadeado;
     private bool temChave = false;
     
     //Quando coletar a chave vai mudar para true
@@ -21,6 +22,9 @@ public class Fechadura : MonoBehaviour
             {
                 //Abrir o portao
                 portao.AbrirPortao();
+
+                AudioMng.Instance.PlayAudioSFX(audioAbrirCadeado);
+
                 //desativar a fechadura
                 fechadura.SetActive(false);
             }     

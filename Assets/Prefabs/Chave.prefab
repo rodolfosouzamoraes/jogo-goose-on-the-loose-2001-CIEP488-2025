@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fechaduraPortao: {fileID: 0}
   efeitoChave: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  audioColetaChave: {fileID: 8300000, guid: 3724d3a97ee96044db5132d1cab2850a, type: 3}
 --- !u!114 &1979636149640821538
 MonoBehaviour:
   m_ObjectHideFlags: 0
