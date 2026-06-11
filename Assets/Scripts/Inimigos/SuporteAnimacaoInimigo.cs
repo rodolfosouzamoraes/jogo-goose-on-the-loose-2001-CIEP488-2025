@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class SuporteAnimacaoInimigo : MonoBehaviour
 {
     private Animator animator;
-    public UnityEvent eventos;
+    public UnityEvent[] eventos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,8 +23,8 @@ public class SuporteAnimacaoInimigo : MonoBehaviour
         animator.SetBool("Correndo", true);
     }
 
-    public void AcionarEvento()
+    public void AcionarEvento(int evento)
     {
-        eventos.Invoke();
+        eventos[evento].Invoke();
     }
 }

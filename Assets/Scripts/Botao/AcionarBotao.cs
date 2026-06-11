@@ -7,6 +7,7 @@ public class AcionarBotao : MonoBehaviour
     [SerializeField] Material materialOff; //Material para simbolizar que o botão foi desativado
     [SerializeField] GameObject tecla; //Tecla do botão
     [SerializeField] MeshRenderer meshTecla; //Pegar a referencia da "Pele" da tecla
+    [SerializeField] AudioClip audioClickBotao;
 
     public UnityEvent ativarEventos; //Vai ativar todos os eventos programados
     public UnityEvent desativarEventos; //Vai desativar todos os eventos programados
@@ -15,6 +16,7 @@ public class AcionarBotao : MonoBehaviour
     {
         //Executar os eventos
         ativarEventos.Invoke();
+        AudioMng.Instance.PlayAudioSFX(audioClickBotao);
     }
 
     public void DesativarBotao()
