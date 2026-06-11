@@ -45,6 +45,7 @@ public class SuporteAnimacaoPlayer : MonoBehaviour
 
     public void AcionarEvento(int evento)
     {
+        if (CanvasGameMng.Instance.FimDeJogo == true) return;
         eventosAnimacao[evento].Invoke();
     }
 }

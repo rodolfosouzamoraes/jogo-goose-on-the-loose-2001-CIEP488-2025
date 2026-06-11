@@ -3,6 +3,7 @@ using UnityEngine;
 public class ColetarMoeda : MonoBehaviour
 {
     [SerializeField] GameObject efeitoMoeda;
+    [SerializeField] AudioClip audioColeta;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Player"))
@@ -13,6 +14,9 @@ public class ColetarMoeda : MonoBehaviour
             //Instanciar o efeito da moeda
             GameObject novoEfeito = Instantiate(efeitoMoeda);
             novoEfeito.transform.position = transform.position;
+
+            //Tocar audio
+            AudioMng.Instance.PlayAudioSFX(audioColeta);
 
             //Destruir a moeda
             Destroy(gameObject);

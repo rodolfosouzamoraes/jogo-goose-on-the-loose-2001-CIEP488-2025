@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   efeitoOvo: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
+  audioColetarOvo: {fileID: 8300000, guid: 493460c55d8acb24bb5dd9d25adaa31b, type: 3}
 --- !u!114 &368008788231012149
 MonoBehaviour:
   m_ObjectHideFlags: 0
