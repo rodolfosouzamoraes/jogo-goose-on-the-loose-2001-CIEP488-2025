@@ -13,5 +13,6 @@ public class AtirarProjetil : MonoBehaviour
         novoProjetil.transform.rotation = transform.rotation;
         //Jogo o projetil para frente do inimigo
         novoProjetil.transform.Translate(new Vector3(0, 0, 1.25f));
+        GetComponentInChildren<AudioController>().PlayAudioLocal(0);
     }
 }
