@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 3
-  distanciaParaPerseguir: 4
+  distanciaParaPerseguir: 6
   animacaoInimigo: {fileID: 3376159667273859028}
 --- !u!1001 &3519459698347569387
 PrefabInstance:
