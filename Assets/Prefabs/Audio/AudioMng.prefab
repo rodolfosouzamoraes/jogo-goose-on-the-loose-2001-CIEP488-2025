@@ -242,4 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   audioMusic: {fileID: 4073770710116418668}
   audioSFX: {fileID: 7726657379375171455}
-  musicas: []
+  musicas:
+  - {fileID: 8300000, guid: 20844dfc76372694faf8a89addbb0d0b, type: 3}
+  - {fileID: 8300000, guid: 3d6b52cdb784b6f4d9cb6e8df2943cfd, type: 3}

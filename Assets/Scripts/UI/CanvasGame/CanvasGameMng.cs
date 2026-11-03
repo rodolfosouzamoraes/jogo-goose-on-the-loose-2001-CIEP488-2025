@@ -38,6 +38,8 @@ public class CanvasGameMng : MonoBehaviour
     {
         //Ocultar a tela de loading
         CanvasLoadingMng.Instance.OcultarTela();
+        AudioMng.Instance.PlayAudioMusic(1);
+        AtualizarVolumes();
     }
 
     public void DefinirFimDeJogo()
@@ -51,5 +53,12 @@ public class CanvasGameMng : MonoBehaviour
             PainelTopo.MoedasColetadas,
             PainelTopo.OvosColetados
         );
+    }
+
+    private void AtualizarVolumes()
+    {
+        //Obter os volumes da memoria e atualizar no audiomng
+        Volume volume = DBMng.GetVolume();
+        AudioMng.Instance.MudarVolume(volume);
     }
 }

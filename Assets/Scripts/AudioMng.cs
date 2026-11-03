@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AudioMng : MonoBehaviour
 {
@@ -32,6 +33,13 @@ public class AudioMng : MonoBehaviour
             audioMusic.clip = musicas[music];
             audioMusic.Play();
         }
+    }
+
+    public void MudarVolume(Volume volume)
+    {
+        //Mudar os volumes dos audio source
+        audioSFX.volume = volume.vfx;
+        audioMusic.volume = volume.musica;
     }
 
 }

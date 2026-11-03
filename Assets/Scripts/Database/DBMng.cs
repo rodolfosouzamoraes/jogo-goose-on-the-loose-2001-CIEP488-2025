@@ -7,6 +7,7 @@ public static class DBMng
     private const string OVO_FINAL_LEVEL = "ovo-final-level-";
     private const string LEVEL_DESBLOQUEADO = "level_desbloqueado-";
     private const string CONFIGURACOES = "configuracoes";
+    private const string VOLUME = "volume";
 
     public static int ObterOvosLevel(int id)
     {
@@ -58,5 +59,46 @@ public static class DBMng
 
         //Desbloquear o próximo level
         PlayerPrefs.SetInt(LEVEL_DESBLOQUEADO + (idLevel + 1), 1);
+    }
+
+    public static void SetVolume(float volumeVFX, float volumeMusica)
+    {
+        //Criar um objeto Volume para armazenar os dados
+        Volume volume = new Volume();
+
+        //Armazenar os valores dos parametros no objeto do volume
+        volume.vfx = volumeVFX;
+        volume.musica = volumeMusica;
+
+        //Converter o objeto para uma estrutura em Json
+        string json = JsonUtility.ToJson(volume);
+
+        //Salvar json na memoria
+        PlayerPrefs.SetString(VOLUME, json);
+    }
+
+    public static Volume GetVolume()
+    {
+        //Pegar a estrutura salva do json na memoria
+        string json = PlayerPrefs.GetString(VOLUME);
+
+        //Converter a estrutura para o objeto Volume
+        Volume volume = JsonUtility.FromJson<Volume>(json);
+
+        //Verificar se o volume está nulo
+        if (volume == null)
+        {
+            //Salvar um volume inicial
+            SetVolume(0.5f, 0.5f);
+
+            //Atualizar a estrutura do json
+            json = PlayerPrefs.GetString(VOLUME);
+
+            //Converter a estrutura atualizada para o objeto volume
+            volume = JsonUtility.FromJson<Volume>(json);
+        }
+
+        //Retornar o volume configurado
+        return volume;
     }
 }
