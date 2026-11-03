@@ -1163,6 +1163,9 @@ MonoBehaviour:
   forcaPulo: 7
   forcaQueda: 20
   animacaoPlayer: {fileID: 5551413877064709171}
+  acaoMover: {fileID: 5535272099998890259, guid: cbf8e2c0cc0c5864fa9653d18a3024ee, type: 3}
+  acaoPular: {fileID: -8058771628026940726, guid: cbf8e2c0cc0c5864fa9653d18a3024ee, type: 3}
+  acaoCorrer: {fileID: 5050465009834176292, guid: cbf8e2c0cc0c5864fa9653d18a3024ee, type: 3}
 --- !u!114 &3444341480879480849
 MonoBehaviour:
   m_ObjectHideFlags: 0

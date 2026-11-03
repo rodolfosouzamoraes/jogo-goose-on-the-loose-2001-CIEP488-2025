@@ -1,143 +1,226 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MoverPlayer : MonoBehaviour
 {
-    //Variaveis para configurar a camera
+    // Variáveis para configurar a câmera
     private Transform cameraPlayer;
     private float valorDeGiroSuave = 0.1f;
     private float velocidadeDeGiroSuave;
 
-    //Variaveis de movimentação do player
     [Header("Config Movimento")]
-    [SerializeField] float velocidadeCaminhada; //Velocidade de caminhada do player
-    [SerializeField] float velocidadeCorrida; //Velocidade de corrida do player
-    [SerializeField] float forcaPulo; //Força de subida do player
-    [SerializeField] float forcaQueda; //Força de queda do player
+    [SerializeField] private float velocidadeCaminhada;
+    [SerializeField] private float velocidadeCorrida;
+    [SerializeField] private float forcaPulo;
+    [SerializeField] private float forcaQueda;
 
     [Header("Config Animação")]
-    [SerializeField] SuporteAnimacaoPlayer animacaoPlayer;
-    
-    private CharacterController playerController; //O controlador da movimentação do player
-    private float velocidadeVertical = 0; //A velocidade na vertical do player
+    [SerializeField] private SuporteAnimacaoPlayer animacaoPlayer;
+
+    [Header("Input Actions - Jogador")]
+    [SerializeField] private InputActionReference acaoMover;
+    [SerializeField] private InputActionReference acaoPular;
+    [SerializeField] private InputActionReference acaoCorrer;
+
+    private CharacterController playerController;
+    private float velocidadeVertical = 0f;
     private bool habilitarMovimentacao;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    /*
+     * Habilita as ações do jogador quando
+     * este componente é ativado.
+     */
+    private void OnEnable()
     {
-        //Configurar a variavel playerController
+        if (acaoMover != null && acaoMover.action != null)
+            acaoMover.action.Enable();
+
+        if (acaoPular != null && acaoPular.action != null)
+            acaoPular.action.Enable();
+
+        if (acaoCorrer != null && acaoCorrer.action != null)
+            acaoCorrer.action.Enable();
+    }
+
+    /*
+     * Desabilita as ações quando
+     * este componente é desativado.
+     */
+    private void OnDisable()
+    {
+        if (acaoMover != null && acaoMover.action != null)
+            acaoMover.action.Disable();
+
+        if (acaoPular != null && acaoPular.action != null)
+            acaoPular.action.Disable();
+
+        if (acaoCorrer != null && acaoCorrer.action != null)
+            acaoCorrer.action.Disable();
+    }
+
+    /*
+     * Configura o controlador, a câmera e
+     * valida as ações associadas no Inspector.
+     */
+    private void Start()
+    {
         playerController = GetComponent<CharacterController>();
 
-        //Configurar a posicao da camera do player
-        cameraPlayer = Camera.main.transform;
+        if (acaoMover == null || acaoMover.action == null ||
+            acaoPular == null || acaoPular.action == null ||
+            acaoCorrer == null || acaoCorrer.action == null)
+        {
+            Debug.LogError(
+                "MoverPlayer: associe as ações Mover, Pular e Correr no Inspector.",
+                this
+            );
 
-        //Habilitar movimentação
+            enabled = false;
+            return;
+        }
+
+        cameraPlayer = Camera.main.transform;
         habilitarMovimentacao = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    /*
+     * Atualiza o movimento enquanto
+     * o jogador estiver habilitado.
+     */
+    private void Update()
     {
-        //Verificar se o jogo acabou
-        if (CanvasGameMng.Instance.FimDeJogo == true || habilitarMovimentacao == false) return;
+        if (CanvasGameMng.Instance.FimDeJogo == true ||
+            habilitarMovimentacao == false)
+            return;
 
         MovimentarXYZ();
     }
 
-    //Método para movimentar o player nos eixos xyz
+    /*
+     * Lê teclado ou Xbox, calcula movimento,
+     * corrida, pulo, gravidade e animações.
+     */
     private void MovimentarXYZ()
     {
-        //Verificar se o player esta correndo
-        bool estaCorrendo = Input.GetAxisRaw("Correr") > 0;
+        // Verificar se o jogador está correndo
+        bool estaCorrendo = acaoCorrer.action.IsPressed();
 
-        //Definir a velocidade de movimentação do player
-        float velocidade = estaCorrendo == true ? velocidadeCorrida : velocidadeCaminhada;
+        // Definir a velocidade
+        float velocidade = estaCorrendo
+            ? velocidadeCorrida
+            : velocidadeCaminhada;
 
-        //Definir a direção de movimentação vertical
-        float direcaoVertical = Input.GetAxisRaw("Vertical");
+        // Ler WASD ou analógico esquerdo
+        Vector2 entradaMovimento =
+            acaoMover.action.ReadValue<Vector2>();
 
-        //Definir a direção de movimentação horizontal
-        float direcaoHorizontal = Input.GetAxisRaw("Horizontal");
+        // Converter Vector2 para Vector3
+        Vector3 direcaoXZ = new Vector3(
+            entradaMovimento.x,
+            0f,
+            entradaMovimento.y
+        );
 
-        //Definir a direção no plano X e Z
-        Vector3 direcaoXZ = new Vector3(direcaoHorizontal,0,direcaoVertical).normalized;
+        // Limitar a diagonal e manter a
+        // intensidade parcial do analógico
+        direcaoXZ = Vector3.ClampMagnitude(direcaoXZ, 1f);
 
-        //Rotacionar o jogador em referencia a camera
-        if (direcaoXZ != Vector3.zero) { 
-            direcaoXZ = RotacionarParaOndeACameraEstaVisualizando(direcaoXZ);
+        // Rotacionar em relação à câmera
+        if (direcaoXZ != Vector3.zero)
+        {
+            direcaoXZ =
+                RotacionarParaOndeACameraEstaVisualizando(direcaoXZ);
         }
 
-        //Verificar se o jogador está no chão para poder pular
-        if (playerController.isGrounded == true) {
-            //Verificar se a tecla do pulo foi acionada
-            if (Input.GetButtonDown("Jump"))
+        // Verificar se está no chão
+        if (playerController.isGrounded == true)
+        {
+            // Verificar botão de pulo
+            if (acaoPular.action.WasPressedThisFrame())
             {
                 velocidadeVertical = forcaPulo;
             }
             else
             {
-                //Fazer o personagem se manter no chão após cair
-                velocidadeVertical = -1;
+                velocidadeVertical = -1f;
             }
         }
         else
         {
-            //Fazer o player descer
+            // Aplicar gravidade
             velocidadeVertical -= forcaQueda * Time.deltaTime;
         }
 
-        //Combinar a direção do plano X e Z com a velocidade de movimentação
+        // Calcular direção final
         Vector3 direcaoFinal = direcaoXZ * velocidade;
-
-        //Definir a direcao em Y
         direcaoFinal.y = velocidadeVertical;
 
-        //Movimentar o player
-        if(direcaoFinal != new Vector3(0,-1,0))
+        // Movimentar usando CharacterController
+        if (direcaoFinal != new Vector3(0f, -1f, 0f))
         {
-            playerController.Move(direcaoFinal * Time.deltaTime);
+            playerController.Move(
+                direcaoFinal * Time.deltaTime
+            );
         }
 
+        // Atualizar animação
         AtivaAnimacao(direcaoXZ, estaCorrendo);
     }
 
-    private Vector3 RotacionarParaOndeACameraEstaVisualizando(Vector3 direcao)
+    /*
+     * Calcula a direção relativa à câmera,
+     * suaviza a rotação e mantém a intensidade
+     * da movimentação analógica.
+     */
+    private Vector3 RotacionarParaOndeACameraEstaVisualizando(
+        Vector3 direcao)
     {
-        //Converter a direção de entrada em um angulo no plano XZ e
-        //depois transformar em graus para conseguir usar a camera como referencia
-        float anguloAlvo = Mathf.Atan2(direcao.x, direcao.z) * Mathf.Rad2Deg + cameraPlayer.eulerAngles.y;
+        float anguloAlvo =
+            Mathf.Atan2(direcao.x, direcao.z) *
+            Mathf.Rad2Deg + cameraPlayer.eulerAngles.y;
 
-        //Fazer uma rotação suave entre o angulo que o jogador está para o angulo alvo
         float angulo = Mathf.SmoothDampAngle(
-            transform.eulerAngles.y, 
-            anguloAlvo, 
-            ref velocidadeDeGiroSuave, 
+            transform.eulerAngles.y,
+            anguloAlvo,
+            ref velocidadeDeGiroSuave,
             valorDeGiroSuave
         );
 
-        //Atualizar a rotação do player no mundo do jogo, girando ele no eixo y
-        transform.rotation = Quaternion.Euler(0, angulo, 0);
+        transform.rotation = Quaternion.Euler(0f, angulo, 0f);
 
-        //Retornar a direção ajustada pela rotação do player
-        return Quaternion.Euler(0,anguloAlvo,0) * Vector3.forward;
+        return Quaternion.Euler(0f, anguloAlvo, 0f)
+               * Vector3.forward * direcao.magnitude;
     }
 
+    /*
+     * Impede o jogador de se movimentar.
+     */
     public void BloquearMovimentacao()
     {
         habilitarMovimentacao = false;
     }
 
+    /*
+     * Permite novamente a movimentação.
+     */
     public void PermitirMovimentacao()
     {
         habilitarMovimentacao = true;
     }
 
-    private void AtivaAnimacao(Vector3 direcaoFinal, bool estaCorrendo)
+    /*
+     * Controla as animações de caminhada,
+     * corrida, pulo e personagem parado.
+     */
+    private void AtivaAnimacao(
+        Vector3 direcaoFinal, bool estaCorrendo)
     {
         if (playerController.isGrounded == true)
         {
-            if (direcaoFinal != new Vector3(0, 0, 0))
+            if (direcaoFinal != Vector3.zero)
             {
-                if(estaCorrendo == true)
+                if (estaCorrendo == true)
                 {
                     animacaoPlayer.PlayCorrendo();
                 }
