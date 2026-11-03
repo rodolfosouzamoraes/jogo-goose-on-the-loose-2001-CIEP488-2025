@@ -27,6 +27,7 @@ public class CanvasGameMng : MonoBehaviour
     }
 
     private bool fimDeJogo;
+    public DanoPlayer DanoPlayer;
 
     //Uma propriedade de acesso a variavel fim de jogo
     public bool FimDeJogo
@@ -42,6 +43,8 @@ public class CanvasGameMng : MonoBehaviour
         CanvasLoadingMng.Instance.OcultarTela();
         AudioMng.Instance.PlayAudioMusic(1);
         AtualizarVolumes();
+
+        DanoPlayer = FindFirstObjectByType<DanoPlayer>();
     }
 
     public void DefinirFimDeJogo()

@@ -21346,6 +21346,10 @@ PrefabInstance:
       propertyPath: nomeCenaProximoNivel
       value: Level_7
       objectReference: {fileID: 0}
+    - target: {fileID: 4427556927731436008, guid: a72695022e986f24d8df72f0da9a1163, type: 3}
+      propertyPath: tempoLevel
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 6994723257366391038, guid: a72695022e986f24d8df72f0da9a1163, type: 3}
       propertyPath: m_Pivot.x
       value: 0

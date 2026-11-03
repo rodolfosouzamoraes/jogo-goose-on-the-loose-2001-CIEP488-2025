@@ -5,6 +5,8 @@ public class PainelTopo : MonoBehaviour
 {
     [SerializeField] GameObject pnlTopo;
     [SerializeField] TextMeshProUGUI txtMoeda;
+    [SerializeField] TextMeshProUGUI txtTempo;
+    [SerializeField] float tempoLevel = 90;
     private int moedasColetadas;
     private int totalMoedasLevel;
 
@@ -55,5 +57,17 @@ public class PainelTopo : MonoBehaviour
         {
             ovos[i-1].SetActive(true);
         }
+    }
+
+    private void Update()
+    {
+        if (CanvasGameMng.Instance.FimDeJogo == true) return;
+        tempoLevel -= Time.deltaTime;
+        if (tempoLevel <= 0)
+        {
+            tempoLevel = 0;
+            CanvasGameMng.Instance.DanoPlayer.MatarPlayer();
+        }
+        txtTempo.text = $"{Mathf.RoundToInt(tempoLevel)}";
     }
 }
