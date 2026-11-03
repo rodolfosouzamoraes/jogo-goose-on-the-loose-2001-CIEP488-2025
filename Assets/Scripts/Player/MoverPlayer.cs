@@ -104,7 +104,7 @@ public class MoverPlayer : MonoBehaviour
     private void MovimentarXYZ()
     {
         // Verificar se o jogador está correndo
-        bool estaCorrendo = acaoCorrer.action.IsPressed();
+        bool estaCorrendo = acaoCorrer.action.IsPressed() ? CanvasGameMng.PainelVidaPlayer.TemStamina() ? true: false : false;
 
         // Definir a velocidade
         float velocidade = estaCorrendo
