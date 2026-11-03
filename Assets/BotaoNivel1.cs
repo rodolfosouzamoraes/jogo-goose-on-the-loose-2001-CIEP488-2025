@@ -15,7 +15,7 @@ public class BotaoNivel1 : MonoBehaviour
         int iconeOvoFinal = DBMng.ObterOvoFinalLevel(idNivel);
 
         imgOvoFinal.color = iconeOvoFinal == 4 || iconeOvoFinal == 0 ? Color.black : Color.white;
-        txtMoedas.text = $"${DBMng.ObterMoedasLevel(idNivel)}";
+        txtMoedas.text = $"x{DBMng.ObterMoedasLevel(idNivel)}";
 
         imgOvoFinal.sprite = sptsOvos[iconeOvoFinal];
     }

@@ -1315,7 +1315,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Desenvolvido pelos alunos do Curso T\xE9cnico em Programa\xE7\xE3o de
-    Jogos Digitais CIEP488/SENAI Resende - 2025 v1.2"
+    Jogos Digitais CIEP488/SENAI Resende - 2026 v1.3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7dbdbc120bc7bff488bac174b2a64e7d, type: 2}
   m_sharedMaterial: {fileID: 3098052375035644000, guid: 7dbdbc120bc7bff488bac174b2a64e7d, type: 2}

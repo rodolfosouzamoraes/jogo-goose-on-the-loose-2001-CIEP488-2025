@@ -26,7 +26,7 @@ public class BotaoNivel : MonoBehaviour
 
         //Obter o ganso e o ovo final
         int iconeOvoFinal = DBMng.ObterOvoFinalLevel(idNivel);
-        txtMoedas.text = $"${DBMng.ObterMoedasLevel(idNivel)}";
+        txtMoedas.text = $"x{DBMng.ObterMoedasLevel(idNivel)}";
 
         imgOvoFinal.color = iconeOvoFinal == 4 || iconeOvoFinal == 0 ? Color.black : Color.white;
 

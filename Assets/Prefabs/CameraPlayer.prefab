@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5ff30bbd1730947a7a442f268ae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 1
+  velocidadeRotacao: 0.5
   velocidadeRotacaoControle: 180
   acaoCamera: {fileID: 2494894993420650470, guid: cbf8e2c0cc0c5864fa9653d18a3024ee, type: 3}
 --- !u!1 &4919698740155148693
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaad3ac9900f5ef41bbb5e9d0af93c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 1
+  velocidadeRotacao: 0.5
   velocidadeRotacaoControle: 120
   limiteNegativoX: -10
   limitePositivoX: 50
