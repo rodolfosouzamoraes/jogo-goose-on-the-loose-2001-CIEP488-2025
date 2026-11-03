@@ -5,30 +5,10 @@ using UnityEngine.UI;
 
 public class PainelFimDeJogo : MonoBehaviour
 {
-    [SerializeField] GameObject pnlFimDeJogo;
     [SerializeField] Image imgOvoFinal;
     [SerializeField] TextMeshProUGUI txtMoedasTotais;
     [SerializeField] Sprite[] sptsOvo;
-    
-    public void ExibirFimDeJogo()
-    {
-        pnlFimDeJogo.SetActive(true);
-    }
 
-    public void IrParaMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void Continuar()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void Rejogar()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 
     public void CalcularPontosLevel(int totalMoedasLevel, int totalMoedasColetadas, int totalOvosColetados)
     {
@@ -72,7 +52,5 @@ public class PainelFimDeJogo : MonoBehaviour
             totalMoedasColetadas,
             ovoFinal
         );
-
-        ExibirFimDeJogo();
     }
 }

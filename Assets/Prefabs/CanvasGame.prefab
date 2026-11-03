@@ -418,8 +418,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0, g: 0.7420225, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -439,9 +439,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2641042990018154913}
-        m_TargetAssemblyTypeName: PainelFimDeJogo, Assembly-CSharp
-        m_MethodName: Continuar
+      - m_Target: {fileID: 3929532398446828691}
+        m_TargetAssemblyTypeName: GerenciadorMenusGameplay, Assembly-CSharp
+        m_MethodName: ProximoNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -551,8 +551,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0, g: 0.7420225, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2641042990018154913}
-        m_TargetAssemblyTypeName: PainelFimDeJogo, Assembly-CSharp
-        m_MethodName: Rejogar
+      - m_Target: {fileID: 3929532398446828691}
+        m_TargetAssemblyTypeName: GerenciadorMenusGameplay, Assembly-CSharp
+        m_MethodName: ReiniciarNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1248,8 +1248,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0, g: 0.7420225, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1269,9 +1269,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5697445151983854048}
-        m_TargetAssemblyTypeName: PainelPause, Assembly-CSharp
-        m_MethodName: ContinuarJogo
+      - m_Target: {fileID: 3929532398446828691}
+        m_TargetAssemblyTypeName: GerenciadorMenusGameplay, Assembly-CSharp
+        m_MethodName: Continuar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2246,8 +2246,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0, g: 0.7420225, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2267,9 +2267,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5697445151983854048}
-        m_TargetAssemblyTypeName: PainelPause, Assembly-CSharp
-        m_MethodName: Sair
+      - m_Target: {fileID: 3929532398446828691}
+        m_TargetAssemblyTypeName: GerenciadorMenusGameplay, Assembly-CSharp
+        m_MethodName: SairParaMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2781,8 +2781,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0, g: 0.7420225, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2802,9 +2802,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2641042990018154913}
-        m_TargetAssemblyTypeName: PainelFimDeJogo, Assembly-CSharp
-        m_MethodName: IrParaMenu
+      - m_Target: {fileID: 3929532398446828691}
+        m_TargetAssemblyTypeName: GerenciadorMenusGameplay, Assembly-CSharp
+        m_MethodName: SairParaMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2889,6 +2889,59 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8343514444647333258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4007613825830405911}
+  - component: {fileID: 3929532398446828691}
+  m_Layer: 0
+  m_Name: GerenciarMenus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4007613825830405911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343514444647333258}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -959.2857, y: -539.5, z: 0.71428}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6994723257366391038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3929532398446828691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343514444647333258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5aa319fb22a8d640af4509bf72f5b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  painelPausa: {fileID: 6981188603584338097}
+  painelVitoria: {fileID: 1264097651896432614}
+  botaoContinuar: {fileID: 6744637121997773712}
+  botaoProximoNivel: {fileID: 6486746195514413062}
+  acaoPausar: {fileID: 7567997063480082754, guid: cbf8e2c0cc0c5864fa9653d18a3024ee, type: 3}
+  acaoCancelar: {fileID: 6530177315461908437, guid: cbf8e2c0cc0c5864fa9653d18a3024ee, type: 3}
+  scriptsGameplay: []
+  nomeCenaMenu: Menu
+  nomeCenaProximoNivel: Level_2
 --- !u!1 &8433492734930841329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,7 +3483,6 @@ GameObject:
   - component: {fileID: 8930579227332842273}
   - component: {fileID: 2443292723243253772}
   - component: {fileID: 7354257473216029902}
-  - component: {fileID: 5697445151983854048}
   m_Layer: 5
   m_Name: CanvasGame
   m_TagString: Untagged
@@ -3457,6 +3509,7 @@ RectTransform:
   - {fileID: 6106897203618790896}
   - {fileID: 5840900242710751931}
   - {fileID: 5001055317001690811}
+  - {fileID: 4007613825830405911}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3569,7 +3622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66310eb17faeb48449c96e5244a45e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pnlFimDeJogo: {fileID: 1264097651896432614}
   imgOvoFinal: {fileID: 1474323676231999184}
   txtMoedasTotais: {fileID: 5794946252625708034}
   sptsOvo:
@@ -3619,19 +3671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pnlGameOver: {fileID: 8881786386395354439}
---- !u!114 &5697445151983854048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8721204654195851941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f1d276a6586cb44adeb407ac02ba94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pnlPause: {fileID: 6981188603584338097}
 --- !u!1 &8881786386395354439
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,12 +16,12 @@ public class PainelPause : MonoBehaviour
     void Update()
     {
         if (jogoPausado == true) return;
-        /*
+        
         if (Input.GetKeyDown(KeyCode.P))
         {
             PausarJogo();
         }
-        */
+        
     }
 
     public void PausarJogo()

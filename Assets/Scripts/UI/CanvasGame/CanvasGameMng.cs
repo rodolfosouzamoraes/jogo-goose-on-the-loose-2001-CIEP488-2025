@@ -8,6 +8,7 @@ public class CanvasGameMng : MonoBehaviour
     public static PainelTeleporte PainelTeleporte;
     public static PainelVidaPlayer PainelVidaPlayer;
     public static PainelGameOver PainelGameOver;
+    public static GerenciadorMenusGameplay GerenciadorUI;
     //Singleton
     void Awake()
     {
@@ -17,7 +18,8 @@ public class CanvasGameMng : MonoBehaviour
             PainelFimDeJogo = GetComponent<PainelFimDeJogo>();
             PainelTeleporte = GetComponent<PainelTeleporte>();
             PainelVidaPlayer = GetComponent<PainelVidaPlayer>();
-            PainelGameOver = GetComponent<PainelGameOver>();    
+            PainelGameOver = GetComponent<PainelGameOver>();
+            GerenciadorUI = GetComponentInChildren<GerenciadorMenusGameplay>();
             Instance = this;
             return;
         }
@@ -53,6 +55,8 @@ public class CanvasGameMng : MonoBehaviour
             PainelTopo.MoedasColetadas,
             PainelTopo.OvosColetados
         );
+
+        GerenciadorUI.MostrarVitoria();
     }
 
     private void AtualizarVolumes()
